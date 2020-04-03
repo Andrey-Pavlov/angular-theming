@@ -1,0 +1,36 @@
+.my-container {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+.toolbar {
+  background-color: red;
+}
+
+.alert {
+  // set variable
+  --alert-color: #ff6f69;
+}
+
+.alert p {
+  // get nested variable
+  color: var(--alert-color);
+  border: 1px solid var(--alert-color);
+}
+
+// default colors
+.theme-wrapper {
+  --cardColor: #CCC;
+}
+
+// pass variables into a sass map
+$variables: (
+  --cardColor: var(--cardColor)
+);
+
+@function var ($variable) {
+  @return map-get($variables, $variable);
+}
+

@@ -1,3 +1,7 @@
+
+// QA or Stage environment
 export const environment = {
-  production: true
+  production: true,
+  theme: 'red'
 };
+

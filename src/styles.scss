@@ -1,1 +1,150 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$angular-theming-primary: mat-palette($mat-indigo);
+$angular-theming-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$angular-theming-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$angular-theming-theme: mat-light-theme($angular-theming-primary, $angular-theming-accent, $angular-theming-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($angular-theming-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+//// separate cmp.my-theme.scss
+//
+//// Import library functions for theme creation.
+//@import '~@angular/material/theming';
+//
+//// Define a mixin that accepts a theme and outputs the theme-specific styles.
+//@mixin candy-carousel-theme($theme) {
+//  // Extract the palettes you need from the theme definition.
+//  $primary: map-get($theme, primary);
+//  $accent: map-get($theme, accent);
+//
+//  // Define any styles affected by the theme.
+//  .candy-carousel {
+//    // Use mat-color to extract individual colors from a palette.
+//    background-color: mat-color($primary);
+//    border-color: mat-color($accent, A400);
+//  }
+//}
+//@mixin candy-carousel-typography($config) {
+//  .candy-carousel {
+//    font: {
+//      family: mat-font-family($config, body-1);
+//      size: mat-font-size($config, body-1);
+//      weight: mat-font-weight($config, body-1);
+//    }
+//  }
+//}
+//
+//////
+//// Custom Theming for Angular Material
+//// For more information: https://material.angular.io/guide/theming
+//@import '~@angular/material/theming';
+//// Plus imports for other components in your app.
+//
+//// Include the common styles for Angular Material. We include this here so that you only
+//// have to load a single css file for Angular Material in your app.
+//// Be sure that you only ever include this mixin once!
+//@include mat-core();
+//
+//// Define your application's custom theme.
+//$primary: mat-palette($mat-indigo);
+//$accent:  mat-palette($mat-pink, A200, A100, A400);
+//$theme: mat-light-theme($primary, $accent);
+//
+//// Include theme styles for Angular Material components.
+//@include angular-material-theme($theme);
+//
+//// Include theme styles for your custom components.
+//@include candy-carousel-theme($theme);
+//
+//////
+//// Custom Theming for Angular Material
+//// For more information: https://material.angular.io/guide/theming
+//@import '~@angular/material/theming';
+//// Plus imports for other components in your app.
+//
+//// Include the common styles for Angular Material. We include this here so
+//// that you only have to load a single css file for Angular Material in your app.
+//// Be sure that you only ever include this mixin once!
+//@include mat-core();
+//
+//// import our custom themes
+//@import 'my-theme.scss';
+//@import 'my-light-theme.scss';
+//
+//// !IMPORTANT!
+//// import custom component themes
+//// unofficial naming convention to support nice ordering of files in IDE
+//// to see theme under the original style file of the componenent
+//@import 'app/shared/big-input/big-input.component.scss-theme';
+//@import 'app/shared/flip-toggle-button/flip-toggle-button.component.scss-theme';
+//
+//// you only have to add additional componenets here (instead of in every theme class)
+//@mixin custom-components-theme($theme) {
+//  @include big-input-theme($theme);
+//  @include flip-toggle-button-theme($theme);
+//}
+//
+//.default-theme {
+//  // Include theme styles for core and each component used in your app.
+//  // Alternatively, you can import and @include the theme mixins for each component
+//  // that you are using.
+//  @include angular-material-theme($my-theme);
+//  //
+//  @include custom-components-theme($my-theme)
+//}
+//// additional css classes
+//// you can hardcode one of them on the <body> tag
+//// or switch dynamically during runtime with [class]
+//.my-light-theme {
+//  @include angular-material-theme($my-light-theme);
+//  // include custom components theme mixin once per theme class
+//  @include custom-components-theme($my-light-theme);
+//}
+///* You can add global styles to this file, and also import other style files */
+//html, body { height: 100%; }
+
+//////
+//
+//// !IMPORTANT
+//// selector is <big-input></big-input>
+//@mixin big-input-component-theme($theme) {
+//
+//  // retrieve variables from theme
+//  // (all possible variables, use only what you really need)
+//  $accent: map-get($theme, accent);
+//  $foreground: map-get($theme, foreground);
+//  $background: map-get($theme, background);
+//
+//  // all of these variables contain many additional variables
+//
+//  big-input {
+//    input {
+//      // retrieve particular color from variable, rg: text, base, divider, ...
+//      color: mat-color($foreground, text);
+//      background-color: mat-color($background, card);
+//    }
+//  }
+//}

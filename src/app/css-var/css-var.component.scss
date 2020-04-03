@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  line-height: 1.4;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardx {
+  --hue: 129;
+}
+
+
+.card {
+  --hue: 9;
+
+  --th: hsl(var(--hue), 72%, 64%);
+  --thDark: hsl(var(--hue), 72%, 38%);
+  --accent: hsl(var(--hueAccent, var(--hue)), 72%, 38%);
+  --cardColor: var(--accent);
+
+  position: relative;
+  background: var(--th);
+  padding: 20px 30px;
+  margin: 20px;
+  width: 25%;
+  box-shadow: 0.2em 0.2em 20px rgba(0, 0, 0, 0.25);
+  border-radius: 0.2em;
+
+  h2 {
+    padding-bottom: 0.7em;
+    border-bottom: 3px solid var(--accent);
+  }
+
+  h3 {
+    color: var(--accent);
+  }
+
+  time {
+    color: black;
+    font-weight: normal;
+
+    &::before {
+      content: '|';
+      margin: 0 0.5em;
+    }
+  }
+}
+.card-t {
+  --hue: 300;
+}
+
+.card__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  &:hover,
+  &:focus {
+    background: var(--thDark);
+  }
+}
+
+.card--event {
+  --hue: 180;
+  --hueAccent: 259;
+}
+
+// pass variables into a sass map
+$variables: (
+  --cardColor: var(--cardColor)
+);
+
+@function var($variable) {
+  @return map-get($variables, $variable);
+}
+
